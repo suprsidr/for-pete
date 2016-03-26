@@ -1,12 +1,76 @@
 @charset 'utf-8';
 
 @import '_normalize';
-
-body {
+html, body {
 	overflow: hidden;
-}
-canvas {
-	background: #02bbbd url("../img/bg.jpg") no-repeat scroll center bottom / cover ;
 	height: 100vh;
 	width: 100vw;
 }
+body {
+	background: #02bbbd url("../img/bg.jpg") no-repeat scroll right bottom / cover;
+	position: fixed;
+}
+#plane {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 7.7%;
+	margin: auto;
+	width: 20%;
+	background: url("../img/plane-sprite.png") no-repeat scroll 0 0 / 100% auto;
+}
+#plane > div {
+	position: relative;
+	width: 100%;
+	padding-bottom: 21.484375%;
+}
+#plane.fly-right {
+	background-position: center 16.66666666666667%;
+	animation:
+			fly-right 6s linear,
+			fly-right-background .2s steps(2) alternate infinite;
+}
+#plane.fly-left {
+	background-position: center 66.66666666666667%;
+	left: 100%;
+	right: auto;
+	bottom: 70%;
+	animation:
+			fly-left 8s 3s linear,
+			fly-left-background .2s steps(2) alternate infinite;
+}
+@keyframes fly-right {
+	from {
+		left: 0;
+		right: 0;
+	}
+	to {
+		left: 100%;
+		right: -10%;
+		bottom: 50%;
+	}
+}
+@keyframes fly-left {
+	from {
+		left: 100%;
+	}
+	to {
+		left: -20%;
+	}
+}
+/*
+	0%
+	16.66666666666667%
+	33.33333333333333%
+	50%
+	66.66666666666667%
+	83.33333333333333%
+	*/
+@keyframes fly-right-background {
+	100% { background-position: 0 50%; }
+}
+
+@keyframes fly-left-background {
+	100% { background-position: 0 100%; }
+}
+
