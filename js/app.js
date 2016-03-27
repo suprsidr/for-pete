@@ -13,7 +13,7 @@ function whichAnimationEvent(){
 		'OAnimation':'oAnimationEnd',
 		'MozAnimation':'animationend',
 		'WebkitAnimation':'webkitAnimationEnd'
-	}
+	};
 
 	for(let t in animations){
 		if( plane.style[t] !== undefined ){
