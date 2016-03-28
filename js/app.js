@@ -14,7 +14,6 @@ const whichAnimationEvent = () => {
 		'MozAnimation':'animationend',
 		'WebkitAnimation':'webkitAnimationEnd'
 	};
-
 	for(let t in animations){
 		if( plane.style[t] !== undefined ){
 			return animations[t];
@@ -91,7 +90,7 @@ const fadeIn = () => {
 	logo.classList.add('fade-in');
 	window.setTimeout(() => menu.classList.add('fade-in'), 1000);
 	window.setTimeout(() => social.classList.add('fade-in'), 2000);
-	window.setTimeout(() => replay.classList.add('fade-in'), 10000);
+	window.setTimeout(() => replay.classList.add('fade-in'), 5000);
 };
 
 const flash = (count) => {
