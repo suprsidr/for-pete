@@ -29,7 +29,6 @@ replay.addEventListener('click', function(e) {
 
 const animationEvent = whichAnimationEvent();
 animationEvent && document.addEventListener(animationEvent, function(e) {
-	console.log(e);
 	switch (e.animationName) {
 		case 'parachute':
 			land();
