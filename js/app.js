@@ -7,7 +7,7 @@ const social = document.getElementById('social');
 const replay = document.getElementById('replay');
 const loading = document.getElementById('loading');
 
-function whichAnimationEvent(){
+const whichAnimationEvent = () => {
 	const animations = {
 		'animation':'animationend',
 		'OAnimation':'oAnimationEnd',
@@ -20,7 +20,7 @@ function whichAnimationEvent(){
 			return animations[t];
 		}
 	}
-}
+};
 
 replay.addEventListener('click', function(e) {
 	e.preventDefault();
@@ -28,7 +28,7 @@ replay.addEventListener('click', function(e) {
 });
 
 const animationEvent = whichAnimationEvent();
-animationEvent && document.addEventListener(animationEvent, function(e) {
+animationEvent && document.addEventListener(animationEvent, (e) => {
 	switch (e.animationName) {
 		case 'parachute':
 			land();
@@ -52,50 +52,50 @@ animationEvent && document.addEventListener(animationEvent, function(e) {
 	}
 });
 
-function init() {
+const init = () => {
 	loading.classList.add('load');
 	parachute();
-}
+};
 
-function parachute() {
+const parachute = () => {
 	pete.classList.add('parachute');
-}
-function land() {
+};
+const land = () => {
 	loading.classList.remove('load');
 	pete.classList.remove('parachute');
 	pete.classList.add('landed');
 	window.setTimeout(() => run(), 200);
-}
-function run() {
+};
+const run = () => {
 	pete.classList.remove('landed');
 	pete.classList.add('run');
-}
+};
 
-function jump() {
+const jump = () => {
 	pete.classList.remove('run');
 	pete.classList.add('jump');
-}
+};
 
-function flyRight() {
+const flyRight = () => {
 	pete.classList.remove('jump');
 	pete.classList.add('hidden');
 	plane.classList.add('fly-right');
-}
+};
 
-function flyLeft() {
+const flyLeft = () => {
 	plane.classList.remove('fly-right');
 	plane.classList.add('fly-left');
-}
+};
 
-function fadeIn() {
+const fadeIn = () => {
 	logo.classList.add('fade-in');
 	window.setTimeout(() => menu.classList.add('fade-in'), 1000);
 	window.setTimeout(() => social.classList.add('fade-in'), 2000);
 	window.setTimeout(() => replay.classList.add('fade-in'), 10000);
-}
+};
 
-function flash(count) {
-	if(count > 5) return;
+const flash = (count) => {
+	if(count > 5) { return; }
 	let i = count %2 === 0 ? 0 : 1;
 	menu.children[i].classList.toggle('hover');
 	count++;
@@ -103,6 +103,6 @@ function flash(count) {
 		menu.children[i].classList.toggle('hover');
 		flash(count);
 	}, 500);
-}
+};
 
 window.setTimeout(() => init(), 1000);
