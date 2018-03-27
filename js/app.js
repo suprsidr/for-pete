@@ -94,6 +94,8 @@ const fadeIn = () => {
 };
 
 const flash = (count) => {
+	// pete wants this disabled
+	return;
 	if(count > 5) { return; }
 	let i = count %2 === 0 ? 0 : 1;
 	menu.children[i].classList.toggle('hover');
